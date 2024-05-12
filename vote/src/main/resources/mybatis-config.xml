@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>
+    <settings>
+        <!--解决，查询返回结果含null没有对应字段值问题-->
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+    <typeAliases>
+        <!--单个别名定义-->
+        <!--<typeAlias type="com.by.a1.model.TABLE1" alias="TABLE1"/>-->
+        <!--批量别名定义-->
+        <package name="com.example.vote.entity" />
+        <package name="com.example.vote.model" />
+    </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+            <property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect"/>
+        </plugin>
+    </plugins>
+</configuration>

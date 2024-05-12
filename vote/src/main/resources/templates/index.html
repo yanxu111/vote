@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="renderer" content="webkit">
+        <title>北云公务员报名系统</title>
+
+        <meta name="keywords" content="北云报名系统1.0">
+        <meta name="description" content="北云报名系统">
+
+        <!--[if lt IE 9]>
+        <meta http-equiv="refresh" content="0;ie.html" />
+        <![endif]-->
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <script src="js/jquery.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="js/bootstrap.min.js"></script>
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/style.min.css" rel="stylesheet">
+
+    </head>
+    <body class="fixed-sidebar full-height-layout gray-bg skin-1" style="overflow:hidden">
+        <div id="loading" style="position: fixed;top: -50%;left: -50%;width: 200%;height: 200%;background: #fff;z-index: 100;overflow: hidden;">
+            <img src="img/ajax-loader.gif" style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto;"/>
+        </div>
+        <div id="wrapper">
+            <!--左侧导航开始-->
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="nav-close"><i class="fa fa-times-circle"></i>
+                </div>
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element" style="text-align: center;">
+                                <span><img alt="image" class="img-circle" src="img/bylogo.png" /></span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="clear">
+                                        <span class="block m-t-xs"><strong class="font-bold">北云科技</strong></span>
+                                        <span class="text-muted text-xs block">管理员<b class="caret"></b></span>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a class="J_menuItem" href="form_avatar.html">修改密码</a>
+                                    </li>
+                                    <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                    </li>
+                                    <li><a class="J_menuItem" href="contacts.html">联系我们</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="${staticPath }/logoutAdmin">安全退出</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="logo-element">A0
+                            </div>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/work_plan/rec_plan"><i class="fa fa-columns"></i> <span class="nav-label">招考工作计划</span></a>
+                        </li>
+
+                        <li>
+                            <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/pay_order/order_contrast"><i class="fa fa-columns"></i> <span class="nav-label">订单对账</span></a>
+                        </li>
+
+                        <li>
+                            <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/recpsubmit/rec_plan_submit"><i class="fa fa-columns"></i> <span class="nav-label">上报招考计划</span></a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/recpreview/rec_plan_review"><i class="fa fa-columns"></i> <span class="nav-label">审核上报招考计划</span></a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/recpsummary/rec_plan_summary"><i class="fa fa-columns"></i> <span class="nav-label">招考计划汇总</span></a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="leftNavigationMenu?navUrl=recpcscv/rec_cs_cv"><i class="fa fa-columns"></i> <span class="nav-label">考生报名信息</span></a>
+                        </li>
+                         <li>
+                            <a class="J_menuItem" href="leftNavigationMenu?navUrl=/recruit/arbiration/index"><i class="fa fa-columns"></i> <span class="nav-label">考生仲裁审核</span></a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-home"></i>
+                                <span class="nav-label">审核考生信息</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recpstureview/rec_stu_review"><i class="fa fa-columns"></i> <span class="nav-label">审核考生信息</span></a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recpstureview/rec_stu_review1"><i class="fa fa-columns"></i> <span class="nav-label">快速审核考生</span></a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-home"></i>
+                                <span class="nav-label">考务管理</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/news_report/news_report" data-index="0">新闻公告</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/pol_sta/pol_sta">政策法规</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/com_pro/com_pro">常见问题</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/pub_not/pub_not">公示公告</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/file_list/file_list">相关下载</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="leftNavigationMenu?navUrl=recruit/dyna_form_field/dyna_form_field">考生填报字段</a>
+                                </li>
+
+                  
+                                <li>
+                                    <a class="J_menuItem" href="8.html">招考职位管理</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="9.html">考生填报设置</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="10.html">考生缴费管理</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="11.html">报名考生管理</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="11.html">违纪考生管理</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="11.html">特殊考生管理</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="12.html">报名考生审核</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="12.html">设计准考证</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="12.html">设计成绩单</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-home"></i>
+                                <span class="nav-label">系统管理</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="J_menuItem" href="" data-index="0">用户部门</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="">用户角色</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="">用户管理</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <!--                        <a class="J_menuItem" href="testActiviti"><i class="fa "></i>流程设计器
+                                                    <span class="fa arrow"></span></a>-->
+                        <!--                        <c:forEach items="${sysMenuList}" var="menu" varStatus="status">
+                                                    <li>
+                                                        <c:choose> 
+                                                            <c:when test="${menu.childNavigationMenus.size()>0}">
+                                                                <a href="#"><i class="fa ${menu.navicon}"></i> <span class="nav-label">${menu.navtitle}</span>
+                                                                    <span class="fa arrow"></span></a>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                <a class="J_menuItem" href="leftNavigationMenu?navUrl=${menu.navurl}"><i class="fa ${menu.navicon}"></i> <span class="nav-label">${menu.navtitle}</span></a>
+                                                                </c:otherwise>
+                                                            </c:choose> 
+                                                            <c:if test="${menu.childNavigationMenus.size()>0}">
+                                                            <ul class="nav nav-second-level">
+                                                                <c:forEach items="${menu.childNavigationMenus}" var="secondChild" varStatus="status">
+                                                                    <li>
+                                                                        <c:choose>
+                                                                            <c:when test="${secondChild.childNavigationMenus.size()>0}">
+                                                                                <a class="J_menuItem"><i class="fa ${secondChild.navicon}"></i>${secondChild.navtitle}
+                                                                                    <span class="fa arrow"></span></a>
+                                                                                </c:when>
+                        
+                                                                            <c:otherwise>
+                                                                                <a class="J_menuItem" href="leftNavigationMenu?navUrl=${secondChild.navurl}"><i class="fa ${secondChild.navicon}"></i>${secondChild.navtitle}</a>
+                                                                                </c:otherwise>
+                                                                            </c:choose>
+                                                                            <c:if test="${secondChild.childNavigationMenus.size()>0}">
+                                                                            <ul class="nav nav-third-level">
+                                                                                <c:forEach items="${secondChild.childNavigationMenus}" var="thirdChild" varStatus="status">
+                                                                                    <li><a class="J_menuItem" href="leftNavigationMenu?navUrl=${thirdChild.navurl}"><i class="fa ${thirdChild.navicon}"></i>${thirdChild.navtitle}</a>
+                                                                                    </li>
+                                                                                </c:forEach>
+                                                                            </ul>
+                                                                        </c:if>
+                                                                    </li>
+                                                                </c:forEach>
+                                                            </ul>
+                                                        </c:if>
+                                                    </li>
+                        
+                        
+                                                </c:forEach>-->
+                    </ul>
+                </div>
+            </nav>
+            <!--左侧导航结束-->
+            <!--右侧部分开始-->
+            <div id="page-wrapper" class="gray-bg dashbard-1">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                            <form role="search" class="navbar-form-custom" method="post" action="http://www.baidu.com">
+                                <div class="form-group">
+                                    <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li class="dropdown hidden-xs">
+                                <a class="right-sidebar-toggle" aria-expanded="false">
+                                    <i class="fa fa-tasks"></i> 主题
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="row content-tabs">
+                    <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+                    </button>
+                    <nav class="page-tabs J_menuTabs">
+                        <div class="page-tabs-content">
+                            <a href="javascript:;" class="active J_menuTab" data-id="leftNavigationMenu?navUrl=help">帮助</a>
+                        </div>
+                    </nav>
+                    <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
+                    </button>
+                    <button class="roll-nav roll-right J_tabRight2"><i class="fa fa-refresh"></i>
+                    </button>
+                    <div class="btn-group roll-nav roll-right">
+                        <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+
+                        </button>
+                        <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                            <li class="J_tabShowActive"><a>定位当前选项卡</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                            </li>
+                            <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="login" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+                </div>
+                <div class="row J_mainContent" id="content-main">
+                    <iframe class="J_iframe" name="iframe0" src="leftNavigationMenu?navUrl=help" frameborder="0" data-id="leftNavigationMenu?navUrl=help" seamless></iframe>
+                </div>
+                <div class="footer">
+                    <div class="pull-right">&copy; 2018 <a href="http://www.baidu.com/" target="_blank">北云科技</a>
+                    </div>
+                </div>
+            </div>
+            <!--右侧部分结束-->
+            <!--右侧边栏开始-->
+            <div id="right-sidebar">
+                <div class="sidebar-container">
+
+                    <ul class="nav nav-tabs navs-3">
+
+                        <li class="active">
+                            <a data-toggle="tab" href="#tab-1">
+                                <i class="fa fa-gear"></i> 主题
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="sidebar-title">
+                                <h3> <i class="fa fa-comments-o"></i> 主题设置</h3>
+                                <small><i class="fa fa-tim"></i> 你可以从这里选择和预览主题的布局和样式，这些设置会被保存在本地，下次打开的时候会直接应用这些设置。</small>
+                            </div>
+                            <div class="skin-setttings">
+                                <div class="title">主题设置</div>
+                                <div class="setings-item">
+                                    <span>收起左侧菜单</span>
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="collapsemenu">
+                                            <label class="onoffswitch-label" for="collapsemenu">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setings-item">
+                                    <span>固定顶部</span>
+
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox" id="fixednavbar">
+                                            <label class="onoffswitch-label" for="fixednavbar">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setings-item">
+                                    <span>
+                                        固定宽度
+                                    </span>
+
+                                    <div class="switch">
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox" id="boxedlayout">
+                                            <label class="onoffswitch-label" for="boxedlayout">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="title">皮肤选择</div>
+                                <div class="setings-item default-skin nb">
+                                    <span class="skin-name ">
+                                        <a href="#" class="s-skin-0">
+                                            默认皮肤
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="setings-item blue-skin nb">
+                                    <span class="skin-name ">
+                                        <a href="#" class="s-skin-1">
+                                            蓝色主题
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="setings-item yellow-skin nb">
+                                    <span class="skin-name ">
+                                        <a href="#" class="s-skin-3">
+                                            黄色/紫色主题
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--右侧边栏结束-->
+        </div>
+        <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="js/contabs.min.js"></script>
+        <script src="js/plugins/layer/layer.js"></script>
+        <script src="js/hplus.min.js"></script>
+        <script src="js/plugins/pace/pace.min.js"></script>
+        <script src="js/extjs.js" charset="utf-8"></script>
+        <!--<script src="js/dialog-plus.js"></script>-->
+    </body>
+</html>
